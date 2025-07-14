@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melis'e Hediye</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .wallet-box {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      max-width: 90%;
+      word-break: break-word;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #ff4d6d;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #fff;
+    }
+    button:active {
+      background: #e03b5b;
+    }
+    img {
+      margin-top: 20px;
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Melis'e ufak bir hediye bırakmak ister misin?</h1>
+  <div class="wallet-box" id="walletBox">
+    0xa0d0992BF00f9BE60A680E2591C4F3cA24eA1965
+  </div>
+  <button onclick="copyWallet()">Adresi Kopyala</button>
+  <img src="https://api.qrserver.com/v1/create-qr-code/?data=0xa0d0992BF00f9BE60A680E2591C4F3cA24eA1965&size=200x200" alt="QR Code" />
+
+  <script>
+    function copyWallet() {
+      const text = document.getElementById("walletBox").innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Cüzdan adresi kopyalandı!");
+      });
+    }
+  </script>
+</body>
+</html>
